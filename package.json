@@ -1,0 +1,19 @@
+{
+  "name": "mytodolist",
+  "version": "1.0.0",
+  "description": "A very simple todo list with some extra features",
+  "main": "/src/app.js",
+  "scripts": {
+	"start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "author": "Juan Sebastian Robles Jimenez",
+  "license": "LGPL-2.1-or-later",
+  "dependencies": {
+	  "react": "*",
+    "react-dom": "*",
+    "react-scripts": "*"
+  }
+}
