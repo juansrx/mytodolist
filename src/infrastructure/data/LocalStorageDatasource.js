@@ -1,7 +1,9 @@
+import { DataSource } from "./DataSource";
+
 /**
  * Datasource based on the window.localStorage interface
  */
-class LocalStorageDataSource extends DataSource {
+export class LocalStorageDataSource extends DataSource {
     
     set(key, data) {
         localStorage.setItem(key, JSON.stringify(data));
@@ -12,7 +14,7 @@ class LocalStorageDataSource extends DataSource {
     }
 
     get(key) {
-        return localStorage.removeItem(key);
+        return JSON.parse(localStorage.getItem(key));
     }
 
     delete(key) {
@@ -23,7 +25,7 @@ class LocalStorageDataSource extends DataSource {
         
         let list = [];
         Object.keys(localStorage).forEach((key) => {
-            list.push(JSON.parse(localStorage.getItem(key)));
+            list.push({key, data : JSON.parse(localStorage.getItem(key))});
          });
 
          return list;

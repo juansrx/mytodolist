@@ -2,7 +2,7 @@
  * class representing a task to be performed with a related name, description and
  * status
  */
-class Task {
+export class Task {
 
     #name;
     #description;

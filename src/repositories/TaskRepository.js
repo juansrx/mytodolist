@@ -4,7 +4,7 @@
 class TaskRepository {
 
     create(data) {}
-    findByKey(key, value) {}
-    updateByKey(key, value, data) {}
-    deleteByKey(key, value) {}
+    findByKey(key) {}
+    updateByKey(key, data) {}
+    deleteByKey(key) {}
 }
