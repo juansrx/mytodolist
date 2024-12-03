@@ -1,7 +1,7 @@
 /**
  * This is the abstract interface to the Task repository allowing CRUD operations
  */
-class TaskRepository {
+export class TaskRepository {
 
     create(data) {}
     findByKey(key) {}

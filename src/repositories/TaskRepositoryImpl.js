@@ -4,7 +4,7 @@ import { TaskRepository } from './TaskRepository';
 /**
  * Concrete implementation of the TaskRepository interface
  */
-class TaskRepositoryImpl extends TaskRepository {
+export class TaskRepositoryImpl extends TaskRepository {
 
     #keyField;
     #dataSource;
@@ -15,6 +15,7 @@ class TaskRepositoryImpl extends TaskRepository {
      */
     constructor(keyField, dataSource) {
         
+        super();
         this.#keyField = keyField;
         this.#dataSource = dataSource;
     }
@@ -39,8 +40,14 @@ class TaskRepositoryImpl extends TaskRepository {
         return task;
     }
     
+    /**
+     * 
+     * @param {*} key 
+     * @param {*} data 
+     */
     updateByKey(key, data) {
-
+        
+        this.#dataSource.update(key, data);
     }
 
     /**

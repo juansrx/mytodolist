@@ -27,8 +27,8 @@ export class Task {
      */
     setData(data) {
 
-        this.#name = data.name ?? this.#name;
-        this.#description = data.description ?? this.#description;
-        this.#state = data.state ?? this.#state;
+        this.#name = data?.name ?? this.#name;
+        this.#description = data?.description ?? this.#description;
+        this.#state = data?.state ?? this.#state;
     }
 }

@@ -1,4 +1,4 @@
-import { LocalStorageDataSource } from '../../../infrastructure/data/LocalStorageDatasource';
+import { LocalStorageDataSource } from '../LocalStorageDatasource';
 
 test('DataSource can store an item and retrieve it', () => {
     let dataSource = new LocalStorageDataSource();
