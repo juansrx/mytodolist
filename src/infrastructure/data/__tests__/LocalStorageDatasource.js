@@ -27,6 +27,18 @@ test('DataSource can store an item and retrieve it', () => {
     expect(dataSource.get('obj3')).toEqual(testObject3);
 });
 
+test('Datasource can update an item', () => {
+    let dataSource = new LocalStorageDataSource();
+    let testObject1 = {
+        a : 1,
+        b : 'test'
+    };
+
+    dataSource.set('obj1', testObject1);
+    dataSource.update('obj1', {a : 3, c : 'test2'});
+    expect(dataSource.get('obj1')).toEqual({a : 3, b : 'test', c : 'test2'});
+});
+
 test('DataSource can delete an item', () => {
     let dataSource = new LocalStorageDataSource();
     let testObject1 = {
