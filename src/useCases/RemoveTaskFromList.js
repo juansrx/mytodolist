@@ -1,7 +1,9 @@
+import { TaskRepository } from "../repositories/TaskRepository";
+
 /**
  * The user will send the name from the task to be removed from the list
  */
-class RemoveTaskFromList {
+export class RemoveTaskFromList {
 
     #taskRepository;
 
@@ -19,10 +21,10 @@ class RemoveTaskFromList {
 
     execute(taskData)
     {
-        let prevTask = this.#taskRepository.findByKey('name', taskData?.name);
+        let prevTask = this.#taskRepository.findByKey(taskData?.name);
         if (!prevTask)
-            throw new Error(`The task named ${prevTask.name} doesn't exist`);
+            throw new Error(`The task named ${taskData?.name} doesn't exist`);
         
-        return this.#taskRepository.deleteByKey('name', prevTask.name);
+        return this.#taskRepository.deleteByKey(prevTask.name);
     }
 }
