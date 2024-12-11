@@ -13,12 +13,14 @@ const expectedObject = {
 const expectedTask = new Task();
 expectedTask.setData(expectedObject);
 
-DataSource.prototype.get = jest.fn().mockReturnValue(expectedObject);
+DataSource.prototype.get = function () {
+    return expectedObject;
+};
 
 test('Task Repository can retrieve tasks from stored data', () => {
 
     let taskRepository = new TaskRepositoryImpl('name', new DataSource());
     const task = taskRepository.findByKey('Make Laundry');
 
-    expect(task).toEqual(expectedTask);
+    expect(task.getData()).toEqual(expectedTask.getData());
 });

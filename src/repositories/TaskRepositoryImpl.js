@@ -14,7 +14,7 @@ export class TaskRepositoryImpl extends TaskRepository {
      * @param {string} keyField 
      */
     constructor(keyField, dataSource) {
-        
+
         super();
         this.#keyField = keyField;
         this.#dataSource = dataSource;
@@ -27,26 +27,32 @@ export class TaskRepositoryImpl extends TaskRepository {
     create(data) {
         this.#dataSource.set(data[this.#keyField], data);
     }
-    
+
     /**
      * 
      * @param {string} key 
      * @returns {Task}
      */
     findByKey(key) {
-        
-        let task = new Task();
-        task.setData(this.#dataSource.get(key));
-        return task;
+
+        const data = this.#dataSource.get(key);
+
+        if (data) {
+            let task = new Task();
+            task.setData(data);
+            return task;
+        }
+
+        return null;
     }
-    
+
     /**
      * 
      * @param {*} key 
      * @param {*} data 
      */
     updateByKey(key, data) {
-        
+
         this.#dataSource.update(key, data);
     }
 
