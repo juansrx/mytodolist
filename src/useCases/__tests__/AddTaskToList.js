@@ -12,9 +12,9 @@ const testList = {
     }
 };
 
-TaskRepository.prototype.create = jest.fn(function (taskData) {
+TaskRepository.prototype.create = function (taskData) {
     testList[taskData.name] = taskData;
-});
+};
 
 TaskRepository.prototype.findByKey = function (key) {
 

@@ -21,10 +21,11 @@ export class RemoveTaskFromList {
 
     execute(taskData)
     {
+
         let prevTask = this.#taskRepository.findByKey(taskData?.name);
         if (!prevTask)
             throw new Error(`The task named ${taskData?.name} doesn't exist`);
         
-        return this.#taskRepository.deleteByKey(prevTask.name);
+        this.#taskRepository.deleteByKey(taskData?.name);
     }
 }

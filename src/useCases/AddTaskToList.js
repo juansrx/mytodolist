@@ -30,7 +30,7 @@ export class AddTaskToList {
         
         let prevTask = this.#taskRepository.findByKey(taskData?.name);
         if (prevTask)
-            throw new Error(`There is already a task named ${prevTask.name}`);
+            throw new Error(`There is already a task named ${taskData?.name}`);
         
         this.#taskRepository.create(taskData);
     }
